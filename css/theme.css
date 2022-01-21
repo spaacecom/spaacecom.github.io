@@ -24,7 +24,9 @@ body {
 	line-height: 26px;
 	margin: 0;
 }
-
+.glow{
+		text-shadow: 0 0 80px rgb(192 219 255 / 75%), 0 0 32px rgb(65 120 255 / 24%);
+}
 body a {
 	outline: none !important;
 }
