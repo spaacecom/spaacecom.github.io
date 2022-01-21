@@ -8,6 +8,9 @@ Theme Version:	9.4.0
 .accordion .card {
 	margin-top: 5px;
 }
+html{
+	scroll-behavior: smooth;
+}
 
 .accordion .card:first-child {
 	margin-top: 0;
