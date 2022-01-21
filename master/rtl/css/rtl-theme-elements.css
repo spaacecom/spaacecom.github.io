@@ -5251,7 +5251,7 @@ hr.pattern.pattern-2:after, .divider.pattern.pattern-2:after {
 }
 
 .featured-boxes-modern-style-1 .featured-box .box-content p {
-	color: #999;
+	color: #fff;
 	margin-bottom: 1.6rem;
 }
 
@@ -12537,7 +12537,7 @@ html.boxed .nav-secondary.sticky-active {
 }
 
 .overlay:hover:before, .overlay.overlay-show:before, .overlay.show:before {
-	opacity: 0.8;
+	opacity: 0;
 }
 
 .overlay.overlay-op-1:hover:before, .overlay.overlay-op-1.overlay-show:before, .overlay.overlay-op-1.show:before {
