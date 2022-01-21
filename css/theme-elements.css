@@ -5931,7 +5931,7 @@ hr.pattern.pattern-2:after, .divider.pattern.pattern-2:after {
 }
 
 .featured-boxes-modern-style-2 .featured-box .box-content h2 {
-	color: #212529;
+	color: #2B4AFF;
 	font-weight: 700;
 	font-size: 19.2px;
 	font-size: 1.2rem;
@@ -5942,7 +5942,28 @@ hr.pattern.pattern-2:after, .divider.pattern.pattern-2:after {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
+.spaace{
+  	border: 2px double transparent !important;
+  	background-image: linear-gradient(135deg, #2B4AFF 0%, #E2498D 100%) !important;
+	filter: opacity(0.8);
+  	background-origin: border-box !important;
+  	background-clip: padding-box, border-box !important;
+}
+.spaace:onclick{
+  	border: 2px double transparent !important;
+  	background-image: linear-gradient(135deg, #2B4AFF 0%, #E2498D 100%) !important;
+  	background-origin: border-box !important;
+  	background-clip: padding-box, border-box !important;
+	color:white !important;
+}
+.spaace:hover{
+  	border: 2px double transparent !important;
+  	background-image: linear-gradient(135deg, #2B4AFF 0%, #E2498D 100%) !important;
+	filter: opacity(1) !important;
+  	background-origin: border-box;
+  	background-clip: padding-box, border-box;
+	color:white;
+}
 .featured-boxes-modern-style-2 .featured-box .box-content p {
 	color: #999;
 	margin-bottom: 25.6px;
