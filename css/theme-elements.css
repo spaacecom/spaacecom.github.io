@@ -5938,6 +5938,9 @@ hr.pattern.pattern-2:after, .divider.pattern.pattern-2:after {
 	line-height: 1.3;
 	margin-bottom: 11.2px;
 	margin-bottom: 0.7rem;
+	background: linear-gradient(135deg, #2B4AFF 0%, #E2498D 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .featured-boxes-modern-style-2 .featured-box .box-content p {
