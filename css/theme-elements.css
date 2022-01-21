@@ -5571,10 +5571,7 @@ hr.pattern.pattern-2:after, .divider.pattern.pattern-2:after {
 .featured-box {
 	background: #FFF;
 	box-sizing: border-box;
-	border-bottom: 1px solid #DFDFDF;
-	border-left: 1px solid #ECECEC;
 	border-radius: 8px;
-	border-right: 1px solid #ECECEC;
 	box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.05);
 	margin-bottom: 20px;
 	margin-left: auto;
@@ -5584,6 +5581,7 @@ hr.pattern.pattern-2:after, .divider.pattern.pattern-2:after {
 	position: relative;
 	text-align: center;
 	z-index: 1;
+	border: 0 0 0 0 !important;
 }
 
 .featured-box h4 {
