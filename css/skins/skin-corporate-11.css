@@ -33,7 +33,7 @@ a:active {
 
 html .text-color-primary,
 html .text-primary {
-	color: #2B4AFF !important;
+	color: #212529 !important;
 }
 
 html .text-color-hover-primary:hover,
@@ -6574,8 +6574,8 @@ html .call-to-action.call-to-action-light p {
 
 section.timeline .timeline-box.left:before,
 section.timeline .timeline-box.right:before {
-	background: #2B4AFF;
-	box-shadow: 0 0 0 3px #FFF, 0 0 0 6px #2B4AFF;
+	box-shadow: linear-gradient(135deg, rgb(43, 74, 255) 0%, rgb(226, 73, 141) 100%) !important;
+	background-image: linear-gradient(135deg, rgb(43, 74, 255) 0%, rgb(226, 73, 141) 100%) !important;
 }
 
 ul.history li .featured-box .box-content {
