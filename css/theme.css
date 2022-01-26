@@ -8095,8 +8095,10 @@ a.text-light:focus, a.text-light:hover {
 	.w-100-mobile {
 		width: 100% !important;
 	}
+	div.timeline-box-arrow{
+		display:none !important;
+	}
 }
-
 .width-50vw {
 	width: 50vw;
 }
