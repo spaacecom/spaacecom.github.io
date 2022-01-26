@@ -30,7 +30,9 @@ body {
 body a {
 	outline: none !important;
 }
-
+a:not(.btn):hover{
+	text-decoration: none !important;
+}
 .body {
 	background-color: #212529;
 }
