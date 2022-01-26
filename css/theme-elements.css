@@ -14298,6 +14298,10 @@ html.ie11 .scroll-to-top {
 	html .scroll-to-top.hidden-mobile {
 		display: none !important;
 	}
+	section.timeline:before{
+		z-index:0 !important;
+		display:none !important;
+	}
 }
 
 /* Scrollable */
