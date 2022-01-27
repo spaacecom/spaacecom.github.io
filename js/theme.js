@@ -3,7 +3,11 @@ Name: 			Theme Base
 Written by: 	Okler Themes - (http://www.okler.net)
 Theme Version:	9.4.0
 */
-
+function notyet() {
+	var x = document.getElementById("snackbar");
+	x.className = "show";
+	setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
 // Theme
 window.theme = {};
 
