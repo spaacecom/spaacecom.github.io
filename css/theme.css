@@ -15,7 +15,12 @@ html {
 	box-shadow: none !important;
 	-webkit-font-smoothing: antialiased;
 }
-
+.featured-box{
+	height: 23rem !important;
+}
+.featured-box.overlay.overlay-show{
+	height: 23rem !important;
+}
 body {
 	background-color: #212529;
 	color: #777;
