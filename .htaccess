@@ -1,0 +1,8 @@
+ExpiresActive On
+ExpiresByType image/gif       86400000
+ExpiresByType image/png       86400000
+ExpiresByType image/jpg       86400000
+ExpiresByType image/jpeg      86400000
+ExpiresByType text/html       86400000
+ExpiresByType text/javascript 86400000
+ExpiresByType text/plain      86400000
