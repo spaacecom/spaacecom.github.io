@@ -23,11 +23,32 @@ img.onclick = function(){
 }
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("closefs")[0];
+var span = document.getElementsByClassName("modalfs")[0];
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() { 
   modal.style.display = "none";
+}
+
+
+var modal2 = document.getElementById("modalid2");
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById("fsimg2");
+var modal2Img = document.getElementById("img02");
+var captionText = document.getElementById("captionfs2");
+img.onclick = function(){
+  modal2.style.display = "block";
+  modal2Img.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("modal2fs")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+  modal2.style.display = "none";
 }
 // Theme Common Functions
 window.theme.fn = {
