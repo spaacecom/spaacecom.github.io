@@ -6,3 +6,6 @@ ExpiresByType image/jpeg      86400000
 ExpiresByType text/html       86400000
 ExpiresByType text/javascript 86400000
 ExpiresByType text/plain      86400000
+Header set X-Content-Type-Options nosniff
+Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+Header always append X-Frame-Options SAMEORIGIN
