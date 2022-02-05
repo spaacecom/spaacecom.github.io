@@ -37,6 +37,7 @@ class="
     >
       Logout
     </button>
+    <button class="sendEthButton btn">Send Eth</button>
   </div>
   <button
     id="getContractInfo"
@@ -121,7 +122,26 @@ class="
             alert("No ETH brower extension detected.");
           }
         }
-    
+        //test
+        const sendEthButton = document.querySelector('.sendEthButton');
+
+        let accounts = [];
+        sendEthButton.addEventListener('click', () => {
+          ethereum.request({
+              method: 'eth_sendTransaction',
+              params: [
+                {
+                  from: accounts[0],
+                  to: '0xd631201ff86ae66a8f5c742aa4744166576df565',
+                  value: '0x29a2241af62c0000',
+                  gasPrice: '0x09184e72a000',
+                  gas: '0x2710',
+                },
+              ],
+            })
+            .then((txHash) => console.log(txHash))
+            .catch((error) => console.error);
+        });
         // Go to blockchain and get the contract symbol. Keep in mind
         // YOU MUST BE CONNECT TO RINKEBY NETWORK TO USE THIS FUNCTION
         // why -> because this specific contract address is on ethereum.
