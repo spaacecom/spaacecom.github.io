@@ -1,51 +1,18 @@
 <head>
+  <script src="web3.min.js"></script>
+  <script src="web3.min.js.map"></script>
 </head>
-<div
-class="
-  flex
-  w-full
-  h-full
-  justify-center
-  content-center
-  items-center
-  space-x-4
-"
->
+<div class="flex w-full h-full justify-center content-center items-center space-x-4">
 <div class="flex flex-col space-y-6">
-  <h3 class="text-center">Working with Web3.js!</h3>
+  <h3 class="text-center">Test Panel</h3>
   <div class="flex flex-col space-y-2">
-    <button
-      onclick="loginWithEth()"
-      class="
-        rounded
-        bg-white
-        border border-gray-400
-        hover:bg-gray-100
-        py-2
-        px-4
-        text-gray-600
-        hover:text-gray-700
-      "
-    >
-      Login & Save ETH Address
-    </button>
     <p id="userAddress" class="text-gray-600"></p>
-    <button
-      id="logoutButton"
-      onclick="logout()"
-      class="hidden text-blue-500 underline"
-    >
-      Logout
-    </button>
+    <button id="logoutButton" onclick="logout()" class="hidden text-blue-500 underline">Logout</button>
+    <button onclick="loginWithEth()" class="enableEthereumButton btn">Login & Save Address</button>
+    <input type="text" id="ethtoinvest"></input>
     <button class="sendEthButton btn">Send Eth</button>
   </div>
-  <button
-    id="getContractInfo"
-    onclick="getContractSymbol()"
-    class="rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white"
-  >
-    Get Contract Symbol
-  </button>
+  <button id="getContractInfo" onclick="getContractSymbol()" class="rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white">Get Contract Symbol</button>
   <div class="flex flex-col space-y-2"></div>
 </div>
 </div>
@@ -123,25 +90,43 @@ class="
           }
         }
         //test
+        const ethereumButton = document.querySelector('.enableEthereumButton');
         const sendEthButton = document.querySelector('.sendEthButton');
+        const ethtoinvest = document.querySelector("#ethtoinvest");
+        const paymentAddress = "0xd631201ff86ae66a8f5c742aa4744166576df565";
 
         let accounts = [];
         sendEthButton.addEventListener('click', () => {
+          let totalEth = ethtoinvest.value;
+          totalEth = totalEth.toString();
+          console.log(totalEth);
+          const test = web3.utils.toWei(ethtoinvest.value, 'ether');
+          const test2 = web3.utils.toHex(test);
+          console.log(test);
+          console.log(test2);
           ethereum.request({
+            //test here
+            //end test
               method: 'eth_sendTransaction',
               params: [
                 {
-                  from: accounts[0],
-                  to: '0xd631201ff86ae66a8f5c742aa4744166576df565',
-                  value: '0x29a2241af62c0000',
-                  gasPrice: '0x09184e72a000',
-                  gas: '0x2710',
+                  from: web3.currentProvider.selectedAddress,
+                  to: paymentAddress,
+                  value: test2,
+                  // value: 0x29a2241af62c0000
                 },
               ],
             })
             .then((txHash) => console.log(txHash))
             .catch((error) => console.error);
         });
+        ethereumButton.addEventListener('click', () => {
+          getAccount();
+        });
+
+        async function getAccount() {
+          accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+        }
         // Go to blockchain and get the contract symbol. Keep in mind
         // YOU MUST BE CONNECT TO RINKEBY NETWORK TO USE THIS FUNCTION
         // why -> because this specific contract address is on ethereum.
