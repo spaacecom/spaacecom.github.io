@@ -9,16 +9,20 @@
     <p id="userAddress" class="text-gray-600"></p>
     <p id="userBalance" class="text-gray-600"></p>
     <button id="logoutButton" onclick="logout()" class="hidden text-blue-500 underline">Logout</button>
-    <button onclick="loginWithEth()" class="enableEthereumButton btn">Login & Save Address</button>
+    <button onclick="loginWithEth()" class="enableEthereumButton btn" id="enableEthereum">Login & Save Address</button>
     <input type="number" id="ethtoinvest" min="0" max=""></input>
-    <button class="set-max">Max value</button>
-    <button class="sendEthButton btn">Send Eth</button>
+    <button class="set-max" id="set-max">Max value</button>
+    <button class="sendEthButton btn" id="sentEthButton">Send Eth</button>
   </div>
   <!---<button id="getContractInfo" onclick="getContractSymbol()" class="rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white">Get Contract Symbol</button>
   <div class="flex flex-col space-y-2"></div>--->
 </div>
 </div>
-  
+<style>
+  .hidden {
+    display:none;
+  }
+</style>
     <script>
         window.userAddress = null;
         window.userBlanace = null;
@@ -61,11 +65,19 @@
             document.getElementById("userAddress").innerText = "";
             document.getElementById("userBalance").innerText = "";
             document.getElementById("logoutButton").classList.add("hidden");
+            document.getElementById("enableEthereum").classList.remove("hidden");
+            document.getElementById("ethtoinvest").classList.remove("hidden");
+            document.getElementById("sentEthButton").classList.remove("hidden");
+            document.getElementById("set-max").classList.remove("hidden");
             return false;
           }
     
           document.getElementById("userAddress").innerText = `ETH Address: ${truncateAddress(window.userAddress)}`;
           document.getElementById("logoutButton").classList.remove("hidden");
+          document.getElementById("enableEthereum").classList.add("hidden");
+          document.getElementById("ethtoinvest").classList.add("hidden");
+          document.getElementById("sentEthButton").classList.add("hidden");
+          document.getElementById("set-max").classList.add("hidden");
           var balance = await web3.eth.getBalance(paymentAddress);
           var balanceConverted = web3.utils.fromWei(balance, "ether");
           document.getElementById("userBalance").innerText = `ETH Balance: ${(balanceConverted)}`;
