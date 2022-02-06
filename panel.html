@@ -78,7 +78,7 @@
           document.getElementById("ethtoinvest").classList.remove("hidden");
           document.getElementById("sentEthButton").classList.remove("hidden");
           document.getElementById("set-max").classList.remove("hidden");
-          var balance = await web3.eth.getBalance(paymentAddress);
+          var balance = await web3.eth.getBalance(userAddress);
           var balanceConverted = web3.utils.fromWei(balance, "ether");
           document.getElementById("userBalance").innerText = `ETH Balance: ${(balanceConverted)}`;
           console.log(balance);
