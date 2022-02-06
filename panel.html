@@ -7,18 +7,21 @@
   <h3 class="text-center">Test Panel</h3>
   <div class="flex flex-col space-y-2">
     <p id="userAddress" class="text-gray-600"></p>
+    <p id="userBalance" class="text-gray-600"></p>
     <button id="logoutButton" onclick="logout()" class="hidden text-blue-500 underline">Logout</button>
     <button onclick="loginWithEth()" class="enableEthereumButton btn">Login & Save Address</button>
-    <input type="text" id="ethtoinvest"></input>
+    <input type="number" id="ethtoinvest" min="0" max=""></input>
+    <button class="set-max">Max value</button>
     <button class="sendEthButton btn">Send Eth</button>
   </div>
-  <button id="getContractInfo" onclick="getContractSymbol()" class="rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white">Get Contract Symbol</button>
-  <div class="flex flex-col space-y-2"></div>
+  <!---<button id="getContractInfo" onclick="getContractSymbol()" class="rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white">Get Contract Symbol</button>
+  <div class="flex flex-col space-y-2"></div>--->
 </div>
 </div>
   
     <script>
         window.userAddress = null;
+        window.userBlanace = null;
         window.onload = async () => {
           // Init Web3 connected to ETH network
           if (window.ethereum) {
@@ -29,9 +32,17 @@
     
           // Load in Localstore key
           window.userAddress = window.localStorage.getItem("userAddress");
+          window.userBalance = window.localStorage.getItem("userBalance");
           showAddress();
         };
-    
+        //enter max when clicking button
+        var buttons = document.querySelectorAll('.set-max'); 
+        buttons.forEach(function (button) {
+          button.addEventListener('click', function (event) {
+              var input = event.currentTarget.parentElement.querySelector('input[type="number"]');
+              input.value = input.max;
+          });
+        });
         // Use this function to turn a 42 character ETH address
         // into an address like 0x345...12345
         function truncateAddress(address) {
@@ -45,22 +56,26 @@
         }
     
         // Display or remove the users know address on the frontend
-        function showAddress() {
+        async function showAddress() {
           if (!window.userAddress) {
             document.getElementById("userAddress").innerText = "";
+            document.getElementById("userBalance").innerText = "";
             document.getElementById("logoutButton").classList.add("hidden");
             return false;
           }
     
-          document.getElementById(
-            "userAddress"
-          ).innerText = `ETH Address: ${truncateAddress(window.userAddress)}`;
+          document.getElementById("userAddress").innerText = `ETH Address: ${truncateAddress(window.userAddress)}`;
           document.getElementById("logoutButton").classList.remove("hidden");
+          var balance = await web3.eth.getBalance(paymentAddress);
+          var balanceConverted = web3.utils.fromWei(balance, "ether");
+          document.getElementById("userBalance").innerText = `ETH Balance: ${(balanceConverted)}`;
+          console.log(balance);
+          document.getElementById("ethtoinvest").max = balanceConverted;
         }
-    
         // remove stored user address and reset frontend
         function logout() {
           window.userAddress = null;
+          window.userBalance = null;
           window.localStorage.removeItem("userAddress");
           showAddress();
         }
