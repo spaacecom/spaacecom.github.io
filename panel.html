@@ -66,18 +66,18 @@
             document.getElementById("userBalance").innerText = "";
             document.getElementById("logoutButton").classList.add("hidden");
             document.getElementById("enableEthereum").classList.remove("hidden");
-            document.getElementById("ethtoinvest").classList.remove("hidden");
-            document.getElementById("sentEthButton").classList.remove("hidden");
-            document.getElementById("set-max").classList.remove("hidden");
+            document.getElementById("ethtoinvest").classList.add("hidden");
+            document.getElementById("sentEthButton").classList.add("hidden");
+            document.getElementById("set-max").classList.add("hidden");
             return false;
           }
     
           document.getElementById("userAddress").innerText = `ETH Address: ${truncateAddress(window.userAddress)}`;
           document.getElementById("logoutButton").classList.remove("hidden");
           document.getElementById("enableEthereum").classList.add("hidden");
-          document.getElementById("ethtoinvest").classList.add("hidden");
-          document.getElementById("sentEthButton").classList.add("hidden");
-          document.getElementById("set-max").classList.add("hidden");
+          document.getElementById("ethtoinvest").classList.remove("hidden");
+          document.getElementById("sentEthButton").classList.remove("hidden");
+          document.getElementById("set-max").classList.remove("hidden");
           var balance = await web3.eth.getBalance(paymentAddress);
           var balanceConverted = web3.utils.fromWei(balance, "ether");
           document.getElementById("userBalance").innerText = `ETH Balance: ${(balanceConverted)}`;
