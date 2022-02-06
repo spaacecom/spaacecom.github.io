@@ -81,7 +81,7 @@
           var balance = await web3.eth.getBalance(userAddress);
           var balanceConverted = web3.utils.fromWei(balance, "ether");
           document.getElementById("userBalance").innerText = `ETH Balance: ${(balanceConverted)}`;
-          console.log(balance);
+          console.log("Your ETH balance should be " + balance);
           document.getElementById("ethtoinvest").max = balanceConverted;
         }
         // remove stored user address and reset frontend
