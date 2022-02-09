@@ -4,17 +4,22 @@
     var path = window.location.pathname;
     var page2 = path.split("/").pop();
     var page = page2.replace(".html", "");
+    //CHANGE THIS
+    var contractAddress = "0x0000000000000000000000000000000";
     console.log( page );
 
-    //request metadata
+    //request metadata CHANGE THIS "NAMES"
     $.getJSON('../../metadata/names/metadata/'+page+'.json', function(data) {
         document.getElementById("holderImage").src = data.image;
         document.getElementById("holderName").innerHTML = data.name;
         document.getElementById("holderDescription").innerHTML = data.description;
+        document.getElementById("openSeaButton").href = "https://opensea.io/assets/"+contractAddress+"/"+page;
+        document.getElementById("looksRareButton").href = "https://looksrare.org/collections/"+contractAddress+"/"+page;
         console.log(data);
         console.log('Image: '+data.image);
         console.log('Name: '+data.name);
         console.log('Description: '+data.description);
+        console.log('Contract Address: '+contractAddress);
 });
 
 </script>
@@ -22,5 +27,7 @@
 <body>
     <h1 id="holderName"></h1>
     <p1 id="holderDescription"></p1>
+    <a id="openSeaButton" href="">Buy on OpenSea</a>
+    <a id="looksRareButton" href="">Buy on LooksRare</a>
     <img id="holderImage" src="" alt="">
 </body>
