@@ -9,8 +9,8 @@
     //request metadata
     $.getJSON('../../metadata/names/metadata/'+page+'.json', function(data) {
         document.getElementById("holderImage").src = data.image;
-        document.getElementById("holderName") = data.name;
-        document.getElementById("holderDescription") = data.description;
+        document.getElementById("holderName").innerHTML = data.name;
+        document.getElementById("holderDescription").innerHTML = data.description;
         console.log(data);
         console.log('Image: '+data.image);
         console.log('Name: '+data.name);
