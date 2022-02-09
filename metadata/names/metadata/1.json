@@ -3,6 +3,7 @@
     "description": "This is a SPAACE name", 
     "external_url": "https://spaace.com/panel/names/1", 
     "image": "https://spaace.com/metadata/names/images/1.jpg",
+    "contractAddress": "0x0000000000000000000000000000000",
     "attributes":  [
         {
             "trait_type": "Name", 
