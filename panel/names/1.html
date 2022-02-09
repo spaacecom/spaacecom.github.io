@@ -1,0 +1,23 @@
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+<script>
+    //get metadata
+    var path = window.location.pathname;
+    var page2 = path.split("/").pop();
+    var page = page2.replace(".html", "");
+    console.log( page );
+
+    //request metadata
+    $.getJSON('../../metadata/names/metadata/'+page+'.json', function(data) {
+        document.getElementById("holderImage").src = data.image;
+        document.getElementById("holderName").src = data.name;
+        document.getElementById("holderDescription").src = data.description;
+        console.log(data);
+});
+
+</script>
+
+<body>
+    <img id="holderImage" src="" alt="">
+    <h1 id="holderName"></h1>
+    <p1 id="holderDescription"></p1>
+</body>
