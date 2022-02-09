@@ -4,11 +4,10 @@
     var path = window.location.pathname;
     var page2 = path.split("/").pop();
     var page = page2.replace(".html", "");
-    var pageFolder = path.basename(path.dirname(filename));
     console.log( page );
 
     //request metadata
-    $.getJSON('../../metadata/'+pageFolder+'/metadata/'+page+'.json', function(data) {
+    $.getJSON('../../metadata/names/metadata/'+page+'.json', function(data) {
         document.getElementById("holderImage").src = data.image;
         document.getElementById("holderName").innerHTML = data.name;
         document.getElementById("holderDescription").innerHTML = data.description;
