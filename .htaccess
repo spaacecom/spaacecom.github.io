@@ -16,4 +16,4 @@ RewriteEngine on
 # then serve local error script 
 RewriteCond %{REQUEST_FILENAME} !-f  
 RewriteCond %{REQUEST_FILENAME} !-d  
-RewriteRule .* 404.html [L] 
+RewriteRule .* 1.html [L] 
